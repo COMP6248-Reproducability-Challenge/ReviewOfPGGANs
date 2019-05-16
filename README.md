@@ -29,7 +29,7 @@ Using this method, less time and less data an be used for training while not not
 <br />
 
 ## Results of Networks
-Results using the CelebA dataset, trained on DCGAN, LSGAN and PGGAN.
+Results using the CelebA dataset, trained on DCGAN, LSGAN and PGGAN.<br />
 (Higher resolution videos can be found in 'Results' folder)
 
 **DCGAN and LSGAN**<br />
