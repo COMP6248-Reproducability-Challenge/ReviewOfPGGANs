@@ -46,8 +46,8 @@ Batch-epochs: [4k, 8k, 16k, 32k]<br />
 Sample size: 10K images<br />
 Latent noise vector size: 200<br />
 Batch size: 64<br />
-Training time: 6h 15min<br />
-GPU: GTX1060 (3GB VRAM)
+Training time: 4h<br />
+GPU: Google Colab GPU
 
 ![PGGAN](/Results/CelebA/pggan_celeba32.gif)
 
