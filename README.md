@@ -13,6 +13,25 @@ Karras et al. (2018) introduced a new methodology for training GANs through prog
 * GAN - contains code for running the basic DCGAN and LSGAN networks on various datasets.
 * PGGAN - contains code for running the Progressive Growing GAN networks on celeba (can be trivially modified for other datasets)
 * Results - contains log files and videos of the output of various GANs
+
+```
+.
+├── GAN - code for running the regular GAN
+├── PGGAN - code for running the progressive growing GAN
+├── Results - training videos, loss graphs and training logs
+│   ├── CIFAR-10
+│   |   └── LOGs
+│   ├── CelebA
+│   |   └── LOGs
+│   ├── Fashion-MNIST
+│   |   └── LOGs
+│   ├── MNIST
+│   |   └── LOGs
+│   └── POKEMON
+│       └── LOGs
+├── README.md
+└── ReviewPaper.pdf
+```
 <br />
 
 ## Explanation/Methodology
@@ -45,7 +64,7 @@ GPU: GTX1060 (3GB VRAM)
 **PGGAN**<br />
 Batch-epochs: [4k, 8k, 16k, 32k]<br />
 Sample size: 10K images<br />
-Latent noise vector size: 200<br />
+Latent noise vector size: 64<br />
 Batch size: 64<br />
 Training time: 4h<br />
 GPU: Google Colab GPU
