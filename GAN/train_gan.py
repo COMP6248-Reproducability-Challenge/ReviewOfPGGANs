@@ -31,12 +31,12 @@ except IndexError:
 
 
 import os
-# run on plaidml if installed, else use TF
-try:
-    import plaidml
-    os.environ["KERAS_BACKEND"] = "plaidml.keras.backend"
-except ImportError:
-    pass
+# run on plaidml if installed, else use TF. (plaidml does not work on all datasets and all classes as is still in development)
+# try:
+#     import plaidml
+#     os.environ["KERAS_BACKEND"] = "plaidml.keras.backend"
+# except ImportError:
+#     pass
 
 from keras.optimizers import Adam
 import numpy as np
@@ -73,6 +73,7 @@ Discriminator.trainable = False
 
 my_gan.build(Generator, Discriminator, epochs)
 
+# different noise sizes can improve performance of certain classes within cifar10, or datasets.
 # benchmarkNoise = np.random.normal(-1, 1, size=(196, 100))
 benchmarkNoise = np.random.normal(-1, 1, size=(100, 200))
 
