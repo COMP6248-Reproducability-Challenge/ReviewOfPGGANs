@@ -10,23 +10,19 @@ Karras et al. (2018) introduced a new methodology for training GANs through prog
 <br />
 
 ## Repo file structure
-* GAN - contains code for running the basic DCGAN and LSGAN networks on various datasets.
-* PGGAN - contains code for running the Progressive Growing GAN networks on celeba (can be trivially modified for other datasets)
-* Results - contains log files and videos of the output of various GANs
-
 ```
 .
 ├── GAN - code for running the regular GAN
 ├── PGGAN - code for running the progressive growing GAN
 ├── Results - training videos, loss graphs and training logs
 │   ├── CIFAR-10
-│   |   └── LOGs
+│   │   └── LOGs
 │   ├── CelebA
-│   |   └── LOGs
+│   │   └── LOGs
 │   ├── Fashion-MNIST
-│   |   └── LOGs
+│   │   └── LOGs
 │   ├── MNIST
-│   |   └── LOGs
+│   │   └── LOGs
 │   └── POKEMON
 │       └── LOGs
 ├── README.md
