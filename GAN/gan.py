@@ -4,12 +4,12 @@ Authors : Jay Santokhi, Adrian Wilczynski, Percy Jacks (jks1g15, aw11g15, pj2g15
 Brief   : Creates a class for a generic GAN using methods by Radford et al
 '''
 import os
-# run on plaidml if installed, else use TF
-try:
-    import plaidml
-    os.environ["KERAS_BACKEND"] = "plaidml.keras.backend"
-except ImportError:
-    pass
+# run on plaidml if installed, else use TF. (plaidml does not work on all datasets and all classes as is still in development)
+# try:
+#     import plaidml
+#     os.environ["KERAS_BACKEND"] = "plaidml.keras.backend"
+# except ImportError:
+#     pass
 
 import keras
 from keras import backend as K
@@ -224,10 +224,10 @@ class GAN():
             X_train = np.array(X_train)
             X_train = (X_train.astype("float") - 127.5) / 127.5
             print("X_train.shape = {}".format(X_train.shape))
+            
             return X_train
 
         elif(re.search("pokemon", dataset, flags=re.IGNORECASE)):
-            # self.dataset = 'celeba'
             no_train = 1500
 
             filenames = np.array(glob('pokemon_sprites/*.png'))
@@ -235,7 +235,8 @@ class GAN():
             plt.figure(figsize=(5, 4))
 
             X_train = []
-
+            
+            # using the same network structure as the appropriately sized celeba network
             self.dataset = 'celeba64'
             size = (64, 64)
 
@@ -267,7 +268,7 @@ class GAN():
             off_y_m[:, :, :-1, :] = off_y_m[:, :, 1:, :]
             X_train = np.concatenate((X_train, off_y_p, off_x_p, off_y_m, off_x_m), axis=0)
 
-            # augmenting twice
+            # augmenting twice (if desired for a larger dataset)
             # off_x_p = X_train.copy()
             # off_x_p[:, 1:, :, :] = off_x_p[:, :-1, :, :]
             # off_x_m = X_train.copy()
@@ -525,12 +526,6 @@ class GAN():
         # log the training run
         LOG_FILENAME = '{}_{}.log'.format(self.gantype, self.dataset)
         logging.basicConfig(filename=FOLDER + '/' + LOG_FILENAME, level=logging.DEBUG)
-        # /Users/adrian/Google Drive/Uni/Year 4/Deep Learning/project/generated_images/dcgan_cifar10_horse
-
-        # import csv
-
-        # file = open(LOG_FILENAME, "wb")
-        # writer = csv.writer(file, delimiter=' ', quotechar='"', quoting=csv.QUOTE_ALL)
 
         time_start = time.time()
         for epoch in range(epochs):
